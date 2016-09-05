@@ -1,0 +1,221 @@
+package rs.ac.bg.etf.pp1;
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+// import java.io.*;
+
+//metode za sintaksne greske
+
+
+parser code {:
+	int printCallCount = 0;
+	
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+     
+    //kada ne mozemo da nastavimo dalje parsiranje
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+  //def kako cemo da prijavimo gresku -- moze oporavak
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+    
+    
+  //ne moze da se oporavi
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+//prijavi gresku
+    public void report_error(String message, Object info) {
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+:}
+
+//presrecemo dogadjaj dohvatanja novog tokena
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+terminal PROG, SEMI, COMMA, PRINT, RETURN, CLASS, VOID, DOTT, EXTENDS;
+terminal Integer NUMBER;
+terminal String IDENT;
+terminal CCONST, BCONST, SCONST, CONST;
+terminal LBRACE, RBRACE, LPAREN, RPAREN, LBRA, RBRA;
+terminal PLUS, MINUS, INC, DEC, MUL, DIV, PER, OR, AND;
+terminal EQUAL, EEQUAL, DIFF, BIGGER, BEQUAL, LESS, LEQUAL;
+terminal IF, ELSE, WHILE, BREAK, READ, NEW;
+
+
+non terminal Program, DeclPart, ConstDecl, Type, ConstList, Cst, rhs, DeclList;
+non terminal VarDecl, VarList, VarPart, LocalVarList;
+non terminal ClassDecl, CDeclList, MethodDeclList, MethodDecl, ReturnTypeIdent;
+non terminal FormPars, FormalParamList, FormalParamDecl, StatementList, Statement;
+non terminal Condition, CondList, CondTermList, CondFact, ActualPars, ExprList, Term, TermList, Expr;
+non terminal FactorList, Factor, Designator, IdentExprList, IdentExpr, Relop, Addop, Mulop;
+Program ::= PROG IDENT  DeclList LBRACE MethodDeclList RBRACE ;
+DeclList ::= DeclList DeclPart
+			|
+			/* epsilon */;
+DeclPart ::= ConstDecl| VarDecl | ClassDecl ;
+ConstDecl ::= CONST Type ConstList SEMI;
+Type ::= IDENT;
+ConstList ::= ConstList Cst
+			|
+			Cst;
+Cst ::= IDENT EQUAL rhs;		
+rhs ::= NUMBER
+		|
+		CCONST
+		|
+		BCONST
+		|
+		SCONST;
+VarDecl ::= Type VarList SEMI ;
+VarList ::= VarList COMMA VarPart
+		|
+		VarPart;
+
+VarPart ::= IDENT
+			|
+			IDENT LBRA RBRA;
+LocalVarList ::= LocalVarList VarDecl
+				|
+				/* epsilon */;
+ClassDecl ::= CLASS IDENT LBRACE CDeclList RBRACE;
+CDeclList ::= LocalVarList LBRACE MethodDeclList RBRACE;
+
+MethodDeclList ::= MethodDeclList MethodDecl
+				|
+				/* epsilon */;
+ReturnTypeIdent ::= Type IDENT
+					|
+					VOID IDENT;
+MethodDecl ::= ReturnTypeIdent LPAREN FormPars RPAREN LocalVarList LBRACE StatementList RBRACE;
+FormPars ::= FormalParamList | /* epsilon */ ;
+
+FormalParamList ::= FormalParamList COMMA FormalParamDecl
+					|
+					FormalParamDecl
+					;
+
+FormalParamDecl ::= Type IDENT 
+				|
+				Type IDENT LBRA RBRA;
+
+StatementList ::= StatementList Statement
+				  |
+				  /* epsilon */;				  
+Statement ::= Designator EQUAL Expr SEMI
+			 | 
+			 Designator LPAREN RPAREN SEMI
+			 |
+			 Designator LPAREN ActualPars RPAREN SEMI
+			 |
+			 Designator INC SEMI
+			 |
+			 Designator DEC SEMI
+			 |
+			 IF LPAREN Condition RPAREN Statement ELSE Statement
+			 |
+			 WHILE LPAREN Condition RPAREN Statement
+			 |
+			 BREAK SEMI
+			 |
+			 READ LPAREN Designator RPAREN SEMI
+			 |
+			 RETURN Expr SEMI
+			 |
+			 PRINT LPAREN Expr RPAREN SEMI
+			 |
+			 PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
+			 |
+			 RETURN SEMI
+			 |
+			 RETURN LBRACE StatementList RBRACE
+			 ;
+Condition ::= CondList;
+CondList ::= CondList OR CondTermList
+			| 
+			CondTermList;
+CondTermList ::= CondTermList AND CondFact
+			|
+			CondFact;
+CondFact ::= Expr
+			|
+			Expr Relop Expr;
+ActualPars ::= ExprList;
+ExprList ::= ExprList COMMA Expr
+			| 
+			Expr;
+Expr ::= TermList;
+TermList ::= TermList Addop Term
+			|
+			Term;
+
+Term ::= FactorList;
+
+FactorList ::= FactorList Mulop Factor
+				|
+				Factor
+				|
+				MINUS Factor;
+Factor ::= Designator LPAREN ActualPars RPAREN
+			|
+			Designator LPAREN RPAREN
+			|
+			Designator
+			|
+			NUMBER
+			|
+			CCONST
+			|
+			SCONST
+			|
+			NEW Type LBRA Expr RBRA
+			|
+			NEW Type
+			|
+			LPAREN Expr RPAREN;
+			
+Designator ::= IdentExprList;
+IdentExprList ::= IdentExprList IdentExpr 
+				|
+				IDENT;
+IdentExpr ::= DOTT IDENT 
+			|
+			LBRA Expr RBRA;
+Relop ::= EEQUAL
+		  |
+		  DIFF
+		  |
+		  BIGGER
+		  |
+		  BEQUAL
+		  |
+		  LESS
+		  |
+		  LEQUAL;
+
+Addop ::= PLUS
+		  |
+		  MINUS;
+Mulop ::= MUL
+		  |
+		  DIV
+		  |
+		  PER;
+		  

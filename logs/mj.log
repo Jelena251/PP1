@@ -1,0 +1,141 @@
+INFO  10:52:40,486 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  10:52:40,520 - #18 "true"
+ERROR 10:52:40,521 - 
+Sintaksna greska na liniji 1
+ERROR 10:52:40,521 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 1
+INFO  11:02:50,988 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:02:51,017 - #15 "true"
+ERROR 11:02:51,018 - 
+Sintaksna greska na liniji 1
+ERROR 11:02:51,018 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 1
+INFO  11:04:33,649 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:04:33,705 - #2 program
+INFO  11:04:33,705 - #12 MJProgram
+INFO  11:04:33,706 - #12 int
+INFO  11:04:33,706 - #12 x
+INFO  11:04:33,707 - #4 ,
+INFO  11:04:33,707 - #12 y
+INFO  11:04:33,707 - #3 ;
+INFO  11:04:33,707 - #17 {
+INFO  11:04:33,708 - #8 void
+INFO  11:04:33,708 - #12 main
+INFO  11:04:33,708 - #19 (
+INFO  11:04:33,708 - #20 )
+INFO  11:04:33,708 - #17 {
+INFO  11:04:33,708 - #18 }
+INFO  11:04:33,709 - #18 }
+INFO  11:05:04,832 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:05:04,859 - #2 program
+INFO  11:05:04,860 - #12 MJProgram
+INFO  11:05:04,860 - #12 int
+INFO  11:05:04,860 - #12 x
+INFO  11:05:04,861 - #3 ;
+INFO  11:05:04,861 - #12 int
+INFO  11:05:04,861 - #12 y
+INFO  11:05:04,861 - #3 ;
+INFO  11:05:04,861 - #17 {
+INFO  11:05:04,862 - #8 void
+INFO  11:05:04,862 - #12 main
+INFO  11:05:04,862 - #19 (
+INFO  11:05:04,862 - #20 )
+INFO  11:05:04,862 - #17 {
+INFO  11:05:04,862 - #18 }
+INFO  11:05:04,863 - #18 }
+INFO  11:05:41,205 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:05:41,233 - #2 program
+INFO  11:05:41,234 - #12 MJProgram
+INFO  11:05:41,234 - #12 int
+INFO  11:05:41,235 - #12 x
+INFO  11:05:41,235 - #3 ;
+INFO  11:05:41,235 - #12 int
+INFO  11:05:41,235 - #12 y
+INFO  11:05:41,236 - #3 ;
+INFO  11:05:41,236 - #17 {
+INFO  11:05:41,236 - #8 void
+INFO  11:05:41,236 - #12 main
+INFO  11:05:41,236 - #19 (
+INFO  11:05:41,237 - #20 )
+INFO  11:05:41,237 - #17 {
+INFO  11:05:41,237 - #12 x
+INFO  11:05:41,237 - #32 =
+INFO  11:05:41,237 - #11 1
+INFO  11:05:41,238 - #3 ;
+INFO  11:05:41,238 - #18 }
+INFO  11:05:41,238 - #18 }
+INFO  11:06:07,733 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:06:07,760 - #2 program
+INFO  11:06:07,760 - #12 MJProgram
+INFO  11:06:07,761 - #12 int
+INFO  11:06:07,761 - #12 x
+INFO  11:06:07,761 - #3 ;
+INFO  11:06:07,761 - #12 int
+INFO  11:06:07,762 - #12 y
+INFO  11:06:07,762 - #3 ;
+INFO  11:06:07,762 - #17 {
+INFO  11:06:07,762 - #8 void
+INFO  11:06:07,762 - #12 main
+INFO  11:06:07,763 - #19 (
+INFO  11:06:07,763 - #20 )
+INFO  11:06:07,763 - #17 {
+INFO  11:06:07,763 - #39 if
+INFO  11:06:07,763 - #19 (
+INFO  11:06:07,764 - #11 1
+INFO  11:06:07,764 - #20 )
+INFO  11:06:07,764 - #17 {
+ERROR 11:06:07,764 - 
+Sintaksna greska na liniji 5
+ERROR 11:06:07,765 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 5
+INFO  11:06:23,942 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:06:23,968 - #2 program
+INFO  11:06:23,968 - #12 MJProgram
+INFO  11:06:23,968 - #12 int
+INFO  11:06:23,969 - #12 x
+INFO  11:06:23,969 - #3 ;
+INFO  11:06:23,969 - #12 int
+INFO  11:06:23,969 - #12 y
+INFO  11:06:23,969 - #3 ;
+INFO  11:06:23,970 - #17 {
+INFO  11:06:23,970 - #8 void
+INFO  11:06:23,970 - #12 main
+INFO  11:06:23,970 - #19 (
+INFO  11:06:23,970 - #20 )
+INFO  11:06:23,970 - #17 {
+INFO  11:06:23,971 - #12 i
+INFO  11:06:23,971 - #32 =
+INFO  11:06:23,971 - #11 1
+INFO  11:06:23,971 - #3 ;
+INFO  11:06:23,972 - #39 if
+INFO  11:06:23,972 - #19 (
+INFO  11:06:23,972 - #12 i
+INFO  11:06:23,972 - #33 ==
+INFO  11:06:23,973 - #11 1
+INFO  11:06:23,973 - #20 )
+INFO  11:06:23,973 - #17 {
+ERROR 11:06:23,973 - 
+Sintaksna greska na liniji 6
+ERROR 11:06:23,974 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
+INFO  11:06:39,936 - Compiling source file:C:\pp1\workspace\MJCompiler\test\program.mj
+INFO  11:06:39,967 - #2 program
+INFO  11:06:39,967 - #12 MJProgram
+INFO  11:06:39,967 - #12 int
+INFO  11:06:39,968 - #12 x
+INFO  11:06:39,968 - #3 ;
+INFO  11:06:39,969 - #12 int
+INFO  11:06:39,969 - #12 y
+INFO  11:06:39,969 - #3 ;
+INFO  11:06:39,970 - #17 {
+INFO  11:06:39,970 - #8 void
+INFO  11:06:39,970 - #12 main
+INFO  11:06:39,970 - #19 (
+INFO  11:06:39,971 - #20 )
+INFO  11:06:39,971 - #17 {
+INFO  11:06:39,971 - #12 i
+INFO  11:06:39,972 - #32 =
+INFO  11:06:39,972 - #11 1
+INFO  11:06:39,972 - #3 ;
+INFO  11:06:39,973 - #39 if
+INFO  11:06:39,973 - #19 (
+INFO  11:06:39,973 - #20 )
+ERROR 11:06:39,974 - 
+Sintaksna greska na liniji 6
+ERROR 11:06:39,974 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
