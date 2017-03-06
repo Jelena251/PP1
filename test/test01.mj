@@ -1,0 +1,36 @@
+// nivo A
+// ispravan test
+
+program Prvi
+
+	int a, b; 
+	int manji, veci, step, pom, novi;
+	const int x = 10;
+
+{
+	void main() {
+
+		read(a);
+		read(b);
+
+		novi = 0;
+		if(a < b){
+			manji = a;
+			veci = b;
+		}else{
+			manji = b;
+			veci = a;
+		}
+		
+		manji +=  a;
+		pom = manji;
+		step = 2;
+		novi = veci*step + manji;
+		print(a);
+		print(b);
+		print(manji);
+		print(veci);
+		print(novi);
+		print(step);
+	}
+}

@@ -1,0 +1,20 @@
+// nivo A
+
+program Test02
+	int a x;                   //Uspesan oporavak od greske na liniji 4 pri definisanju globalne promenljive
+	int a, c, maxcif;
+	char e = '2';              //sintaksna greska oporavak do ;
+	int c;                     //semanticka, c je vec definisano
+{
+	void main() char a; int z = 0 { //sintaksna greska, oporavak do { -- lokalna promenljiva
+		read(a);
+		maxcif = 0;
+		
+		a = g f; 		//Greska pri konstrukciji iskaza dodele
+		read(x);                 //semanticka, x nije deklarisan, nekorektan tip parametra u read 
+		x++;                     //semanticka, isto
+		print(max);              //semanticka, isto
+		
+		
+	}
+}

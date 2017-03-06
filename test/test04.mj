@@ -1,0 +1,31 @@
+//nivo B
+//ispravan test
+
+program test04
+	const char sa = 's';
+	int x, y;
+	int a[];
+	bool log;
+{
+	
+	int sum(int z, int d){
+		return z + d;
+	}
+	
+	void main(){
+		read(x);
+		a = new int[5];
+		log = true;
+		y = 3;
+		print(y);
+		for(y=0;y<x;y++){
+			print(y);	
+			a[y] = 1;
+			print(a[y]);
+			x = sum(x,1);
+			if(x == 5) break;
+		}
+		print(a[3]);
+		print(sa);
+	}
+}

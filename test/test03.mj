@@ -1,0 +1,34 @@
+// nivo B
+
+program test03
+
+	const int a = 3;
+	int x, y;
+	int niz[];
+	char z;
+{
+	int funkc1(int saf f){
+		
+	}
+	int funkc2(int a, dd){
+		return 2;
+	}
+	int f3(){
+	
+	}
+	void main(){
+		read(a);               //semanticka, a mora biti promenljiva, element niza ili polje klase
+		x = 1;
+		 y = 3; 
+		 z = 'b';  
+		niz[sd d];
+		break;                 //semanticka, break van petlje
+		if(x < ){
+		
+		}
+		for(int x; f < 5; fa ){
+		
+		}
+	}
+	
+}
